@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Queue Operations Board</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <p class="eyebrow">Operations Workflow Dashboard</p>
+            <h1>Work Queue Operations Board</h1>
+            <p class="hero-text">
+                Browser-based task board for tracking incoming work, assigning owners, monitoring priorities, and managing delivery status across an internal operations workflow.
+            </p>
+        </div>
+    </header>
+
+    <main class="page-shell">
+        <section class="panel">
+            <h2>Queue Summary</h2>
+            <div class="metric-grid">
+                <article class="metric-card">
+                    <h3>Total Tasks</h3>
+                    <p id="totalTasks">0</p>
+                </article>
+                <article class="metric-card">
+                    <h3>To Do</h3>
+                    <p id="todoCount">0</p>
+                </article>
+                <article class="metric-card">
+                    <h3>In Progress</h3>
+                    <p id="progressCount">0</p>
+                </article>
+                <article class="metric-card">
+                    <h3>Done</h3>
+                    <p id="doneCount">0</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Add Work Item</h2>
+            <form id="taskForm" class="task-form">
+                <input id="taskTitle" type="text" placeholder="Task title" required>
+                <input id="taskOwner" type="text" placeholder="Owner" required>
+                <select id="taskPriority" required>
+                    <option value="">Select priority</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+                <input id="taskDueDate" type="date" required>
+                <select id="taskStatus" required>
+                    <option value="To Do">To Do</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Done">Done</option>
+                </select>
+                <button type="submit">Add Task</button>
+            </form>
+        </section>
+
+        <section class="panel">
+            <div class="board-header">
+                <h2>Active Work Queue</h2>
+                <div class="filters">
+                    <select id="statusFilter">
+                        <option value="All">All Statuses</option>
+                        <option value="To Do">To Do</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Done">Done</option>
+                    </select>
+                    <select id="priorityFilter">
+                        <option value="All">All Priorities</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="taskGrid" class="task-grid"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Work Queue Operations Board • Portfolio Project</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
