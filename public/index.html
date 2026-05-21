@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QueueSignal Cloud Support SLA & Incident Triage Console</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <nav class="topbar">
+        <div class="brand-mark">QS</div>
+        <div>
+          <strong>QueueSignal</strong>
+          <span>Cloud Support Operations</span>
+        </div>
+      </nav>
+
+      <section class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">SLA Triage Console</p>
+          <h1>Cloud support queues, simplified.</h1>
+          <p>
+            QueueSignal helps support engineers see what matters first: SLA pressure,
+            customer impact, ticket ownership, severity, and escalation readiness.
+          </p>
+          <div class="hero-actions">
+            <button id="generate-handoff" type="button">Generate Shift Handoff</button>
+            <button id="reset-demo" class="ghost-button" type="button">Reset Demo Data</button>
+          </div>
+        </div>
+
+        <aside class="queue-health-card">
+          <span>Queue Health</span>
+          <strong id="queue-health">--</strong>
+          <p id="queue-health-summary">Loading cloud support queue...</p>
+        </aside>
+      </section>
+    </header>
+
+    <section class="metric-grid">
+      <article class="metric-card">
+        <span>Active Tickets</span>
+        <strong id="metric-active">--</strong>
+        <small>Open support workload</small>
+      </article>
+      <article class="metric-card">
+        <span>SLA Risk</span>
+        <strong id="metric-risk">--</strong>
+        <small>At risk or breached</small>
+      </article>
+      <article class="metric-card">
+        <span>Critical Incidents</span>
+        <strong id="metric-critical">--</strong>
+        <small>Customer-impacting</small>
+      </article>
+      <article class="metric-card">
+        <span>Escalations</span>
+        <strong id="metric-escalations">--</strong>
+        <small>Lead attention needed</small>
+      </article>
+    </section>
+
+    <section class="workflow-strip" aria-label="Support triage workflow">
+      <div class="workflow-step active">
+        <span>1</span>
+        <strong>Read Queue Health</strong>
+        <p>Start with SLA and customer impact.</p>
+      </div>
+      <div class="workflow-step">
+        <span>2</span>
+        <strong>Select Ticket</strong>
+        <p>Review owner, impact, and next action.</p>
+      </div>
+      <div class="workflow-step">
+        <span>3</span>
+        <strong>Escalate Or Update</strong>
+        <p>Move the queue forward with one decision.</p>
+      </div>
+      <div class="workflow-step">
+        <span>4</span>
+        <strong>Handoff</strong>
+        <p>Prepare the next engineer quickly.</p>
+      </div>
+    </section>
+
+    <section class="main-grid">
+      <article class="panel queue-panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Active Queue</p>
+            <h2>Support Tickets</h2>
+          </div>
+
+          <div class="filters">
+            <input id="search-input" type="search" placeholder="Search ticket, customer, service..." />
+            <select id="severity-filter" aria-label="Filter by severity">
+              <option>All</option>
+              <option>Critical</option>
+              <option>High</option>
+              <option>Medium</option>
+              <option>Low</option>
+            </select>
+            <select id="status-filter" aria-label="Filter by status">
+              <option>All</option>
+              <option>Open</option>
+              <option>In Progress</option>
+              <option>Waiting Customer</option>
+              <option>Resolved</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Ticket</th>
+                <th>Customer</th>
+                <th>Service</th>
+                <th>SLA</th>
+                <th>Priority</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="ticket-table"></tbody>
+          </table>
+        </div>
+      </article>
+
+      <aside class="panel detail-panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Decision Panel</p>
+            <h2>Ticket Detail</h2>
+          </div>
+        </div>
+
+        <div id="ticket-detail" class="empty-state">
+          Select a ticket to see the next recommended support action.
+        </div>
+      </aside>
+    </section>
+
+    <section class="secondary-grid">
+      <article class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Cloud Service Impact</p>
+            <h2>Queue Distribution</h2>
+          </div>
+        </div>
+        <div id="service-impact" class="impact-grid"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Shift Handoff</p>
+            <h2>Operational Summary</h2>
+          </div>
+        </div>
+        <div id="handoff-panel" class="handoff-card empty-state">
+          Generate a shift handoff to summarize the queue for the next engineer.
+        </div>
+      </article>
+    </section>
+
+    <section class="cta-panel">
+      <div>
+        <p class="eyebrow">Recruiter Review Moment</p>
+        <h2>Built around real cloud support flow.</h2>
+        <p>
+          QueueSignal demonstrates backend API design, frontend workflow clarity,
+          SLA scoring, escalation logic, operational handoff thinking, and cloud support readiness.
+        </p>
+      </div>
+      <a href="/api/health" target="_blank" rel="noreferrer">View API Health</a>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

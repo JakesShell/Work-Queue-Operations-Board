@@ -1,0 +1,31 @@
+﻿{
+  "name": "queuesignal-cloud-support-sla-triage-console",
+  "version": "2.0.0",
+  "description": "Full-stack cloud support work queue, SLA, and incident triage console.",
+  "type": "module",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check server.mjs && node --check src/triageEngine.mjs && node --check src/data/tickets.mjs && node --check public/app.js",
+    "test": "node tests/triage.test.mjs"
+  },
+  "keywords": [
+    "cloud-support",
+    "incident-triage",
+    "sla",
+    "express",
+    "javascript",
+    "support-operations",
+    "queue-management"
+  ],
+  "author": "JakesShell",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0"
+  }
+}
